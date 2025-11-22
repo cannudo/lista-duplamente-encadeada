@@ -20,4 +20,37 @@ public class No {
         this.dado = dado;
         this.proximoNo = proximoNo;
     }
+
+    public boolean temNoAnterior() {
+        return this.noAnterior != null;
+    }
+
+    public boolean temProximoNo() {
+        return this.proximoNo != null;
+    }
+
+    public No getNoAnterior() {
+        return this.noAnterior;
+    }
+
+    public void setNoAnterior(No noAnterior) {
+        this.noAnterior = noAnterior;
+    }
+
+    public String getDado() {
+        return this.dado;
+    }
+
+    public void setDado(String dado) {
+        this.dado = dado;
+    }
+
+    public No getProximoNo() {
+        return proximoNo;
+    }
+
+    public void setProximoNo(No proximoNo) {
+        this.proximoNo = proximoNo;
+    }
+
 }
