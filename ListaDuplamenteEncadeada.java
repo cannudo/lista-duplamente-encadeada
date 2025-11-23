@@ -9,10 +9,11 @@ public class ListaDuplamenteEncadeada {
         No noX = new No("X");
         ListaDuplamenteEncadeada lista = new ListaDuplamenteEncadeada();
         lista.inserirEmSequencia(noA);
-        System.out.println("A lista só tem um nó? " + lista.soTemUmNo());
+        System.out.println("Tamanho após 1 inserção: " + lista.tamanho());
         lista.inserirEmSequencia(noB);
+        System.out.println("Tamanho após 2 inserções: " + lista.tamanho());
         lista.inserirEmSequencia(noX);
-        System.out.println("A lista só tem um nó? " + lista.soTemUmNo());
+        System.out.println("Tamanho após 3 inserções: " + lista.tamanho());
     }
 
     public ListaDuplamenteEncadeada() {
@@ -85,10 +86,13 @@ public class ListaDuplamenteEncadeada {
         if(this.estaVazia()) {
             return 0;
         }
+        if(this.soTemUmNo()) {
+            return 1;
+        }
         int contador = 0;
         No ultimoNo = this.ultimoNo;
         No oNoDaVez = this.primeiroNo;
-        while(oNoDaVez != ultimoNo) {
+        while(oNoDaVez != null) {
             contador++;
             oNoDaVez = oNoDaVez.getProximoNo();
         }
