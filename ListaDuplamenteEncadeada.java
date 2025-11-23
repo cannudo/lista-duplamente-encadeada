@@ -14,6 +14,10 @@ public class ListaDuplamenteEncadeada {
         System.out.println("Tamanho após 2 inserções: " + lista.tamanho());
         lista.inserirEmSequencia(noX);
         System.out.println("Tamanho após 3 inserções: " + lista.tamanho());
+        System.out.println("'A' existe na lista? " + lista.esteNoExisteNaLista(noA));
+        System.out.println("'B' existe na lista? " + lista.esteNoExisteNaLista(noB));
+        System.out.println("'X' existe na lista? " + lista.esteNoExisteNaLista(noX));
+        System.out.println("'Qualquer' existe na lista? " + lista.esteNoExisteNaLista(new No("Qualquer")));
     }
 
     public ListaDuplamenteEncadeada() {
@@ -97,5 +101,17 @@ public class ListaDuplamenteEncadeada {
             oNoDaVez = oNoDaVez.getProximoNo();
         }
         return contador;
+    }
+
+    public boolean esteNoExisteNaLista(No noBuscado) {
+        if(this.estaVazia()) {
+            return false;
+        }
+        No oNoDaVez = this.getPrimeiroNo();
+        while(oNoDaVez != null) {
+            if(oNoDaVez == noBuscado) return true;
+            oNoDaVez = oNoDaVez.getProximoNo();
+        }
+        return false;
     }
 }
