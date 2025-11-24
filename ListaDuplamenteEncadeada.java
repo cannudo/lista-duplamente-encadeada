@@ -18,6 +18,11 @@ public class ListaDuplamenteEncadeada {
         System.out.println("'B' existe na lista? " + lista.esteNoExisteNaLista(noB));
         System.out.println("'X' existe na lista? " + lista.esteNoExisteNaLista(noX));
         System.out.println("'Qualquer' existe na lista? " + lista.esteNoExisteNaLista(new No("Qualquer")));
+        System.out.println("--------------------------------------------------------------------------");
+        System.out.println("--------------------------------------------------------------------------");
+        No meio = new No("meio");
+        lista.inserirDepois(noA, meio);
+        System.out.println("Tamanho após 4 inserções: " + lista.tamanho());
     }
 
     public ListaDuplamenteEncadeada() {
@@ -37,17 +42,26 @@ public class ListaDuplamenteEncadeada {
         return this.ultimoNo != null;
     }
 
-    public boolean soTemUmNo() {
-        return this.primeiroNo == this.ultimoNo;
+    public void inserirDepois(No noDaVez, No novoNo) {
+        if(this.estaVazia()) {
+            throw new RuntimeException("A lista está vazia.");
+        }
+        if(!esteNoExisteNaLista(noDaVez)) {
+            throw new RuntimeException("O nó de referência não existe na lista.");
+        }
+        if(this.soTemUmNo()) {
+            this.inserirEmSequencia(novoNo);
+            return;
+        }
+        No noOrfao = noDaVez.getProximoNo();
+        noDaVez.setProximoNo(novoNo);
+        noOrfao.setNoAnterior(novoNo);
+        novoNo.setNoAnterior(noDaVez);
+        novoNo.setProximoNo(noOrfao);
     }
 
-    public void inserirDepois(No noDaVez, No proximoNo) {
-        No p = noDaVez;
-        No noOrfao = p.getProximoNo();
-        No X = proximoNo;
-        proximoNo.setDado("X");
-        proximoNo.setNoAnterior(noDaVez);
-        proximoNo.setProximoNo(noOrfao);
+    public boolean soTemUmNo() {
+        return this.primeiroNo == this.ultimoNo;
     }
 
     public void setPrimeiroNo(No primeiroNo) {
