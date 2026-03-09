@@ -55,7 +55,6 @@ public class ListaDuplamenteEncadeadaTest {
 
     @Test
     public void testAListaDoAlfabetoTemTamanhoVinteESeis() {
-        System.out.println();
         assertEquals(lista.tamanho(), 26, "O alfabeto, dado em um array de Strings, deveria deixar a lista com um tamanho de 26 nós. O que aconteceu, latino?");
     }
 

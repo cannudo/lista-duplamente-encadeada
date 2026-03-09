@@ -1,6 +1,6 @@
 public class ListaDuplamenteEncadeada {
-    No primeiroNo;
-    No ultimoNo;
+    No cabeca;
+    No cauda;
 
     public static void main(String[] args) {
         System.out.println("Olá, mundo!");
@@ -10,20 +10,20 @@ public class ListaDuplamenteEncadeada {
     }
 
     public ListaDuplamenteEncadeada() {
-        this.primeiroNo = null;
-        this.ultimoNo = null;
+        this.cabeca = null;
+        this.cauda = null;
     }
 
     public boolean estaVazia() {
-        return (this.primeiroNo == null) && (this.ultimoNo == null);
+        return (this.cabeca == null) && (this.cauda == null);
     }
 
     public boolean temPrimeiroNo() {
-        return this.primeiroNo != null;
+        return this.cabeca != null;
     }
 
     public boolean temUltimoNo() {
-        return this.ultimoNo != null;
+        return this.cauda != null;
     }
 
     public void inserirDepois(No noDaVez, No novoNo) {
@@ -45,11 +45,11 @@ public class ListaDuplamenteEncadeada {
     }
 
     public boolean soTemUmNo() {
-        return this.primeiroNo == this.ultimoNo;
+        return this.cabeca == this.cauda;
     }
 
     public void setPrimeiroNo(No primeiroNo) {
-        this.primeiroNo = primeiroNo;
+        this.cabeca = primeiroNo;
     }
 
     public void inserirEmSequencia(No novoNo) {
@@ -73,15 +73,15 @@ public class ListaDuplamenteEncadeada {
     }
 
     public No getUltimoNo() {
-        return ultimoNo;
+        return cauda;
     }
 
     public void setUltimoNo(No ultimoNo) {
-        this.ultimoNo = ultimoNo;
+        this.cauda = ultimoNo;
     }
 
     public No getPrimeiroNo() {
-        return this.primeiroNo;
+        return this.cabeca;
     }
 
     public int tamanho() {
@@ -92,8 +92,8 @@ public class ListaDuplamenteEncadeada {
             return 1;
         }
         int contador = 0;
-        No ultimoNo = this.ultimoNo;
-        No oNoDaVez = this.primeiroNo;
+        No ultimoNo = this.cauda;
+        No oNoDaVez = this.cabeca;
         while(oNoDaVez != null) {
             contador++;
             oNoDaVez = oNoDaVez.getProximoNo();
