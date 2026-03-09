@@ -4,25 +4,9 @@ public class ListaDuplamenteEncadeada {
 
     public static void main(String[] args) {
         System.out.println("Olá, mundo!");
-        No noA = new No("B");
-        No noB = new No("C");
-        No noX = new No("X");
+        No noA = new No("A");
         ListaDuplamenteEncadeada lista = new ListaDuplamenteEncadeada();
         lista.inserirEmSequencia(noA);
-        System.out.println("Tamanho após 1 inserção: " + lista.tamanho());
-        lista.inserirEmSequencia(noB);
-        System.out.println("Tamanho após 2 inserções: " + lista.tamanho());
-        lista.inserirEmSequencia(noX);
-        System.out.println("Tamanho após 3 inserções: " + lista.tamanho());
-        System.out.println("'A' existe na lista? " + lista.esteNoExisteNaLista(noA));
-        System.out.println("'B' existe na lista? " + lista.esteNoExisteNaLista(noB));
-        System.out.println("'X' existe na lista? " + lista.esteNoExisteNaLista(noX));
-        System.out.println("'Qualquer' existe na lista? " + lista.esteNoExisteNaLista(new No("Qualquer")));
-        System.out.println("--------------------------------------------------------------------------");
-        System.out.println("--------------------------------------------------------------------------");
-        No meio = new No("meio");
-        lista.inserirDepois(noA, meio);
-        System.out.println("Tamanho após 4 inserções: " + lista.tamanho());
     }
 
     public ListaDuplamenteEncadeada() {
