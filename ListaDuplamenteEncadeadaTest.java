@@ -55,6 +55,19 @@ public class ListaDuplamenteEncadeadaTest {
 
     @Test
     public void testAListaDoAlfabetoTemTamanhoVinteESeis() {
+        System.out.println();
         assertEquals(lista.tamanho(), 26, "O alfabeto, dado em um array de Strings, deveria deixar a lista com um tamanho de 26 nós. O que aconteceu, latino?");
     }
+
+    /* Após feitas as inserções na lista do alfabeto :bulb:
+    * --- vírgula,
+    * é esperado que:
+    *  > O primeiro nó da lista seja o da letra A, que ele não tenha nó anterior (e que seja a cabeça)
+    * CADÊ A DEFINIÇÃO DESSE ATRIBUTO NA CLASSE DA LISTA?
+    * > O último nó seja o da letra Z (e que Z seja a cauda da lista)
+    * --- Cadê a definição deste atributo na classe?
+    * --- Tem que ter, meu filho
+    * --- Isto daqui vai ser usado como API de outros programas.
+    * --- Get. Set. E testa, cannudo.
+     */
 }
