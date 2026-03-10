@@ -18,11 +18,11 @@ public class ListaDuplamenteEncadeada {
         return (this.cabeca == null) && (this.cauda == null);
     }
 
-    public boolean temPrimeiroNo() {
+    public boolean temNoCabeca() {
         return this.cabeca != null;
     }
 
-    public boolean temUltimoNo() {
+    public boolean temNoCauda() {
         return this.cauda != null;
     }
 
@@ -48,39 +48,39 @@ public class ListaDuplamenteEncadeada {
         return this.cabeca == this.cauda;
     }
 
-    public void setPrimeiroNo(No primeiroNo) {
-        this.cabeca = primeiroNo;
+    public void setCabeca(No cabeca) {
+        this.cabeca = cabeca;
     }
 
     public void inserirEmSequencia(No novoNo) {
         // 1 - A lista está vazia
         if(this.estaVazia()) {
-            this.setPrimeiroNo(novoNo);
-            this.setUltimoNo(novoNo);
+            this.setCabeca(novoNo);
+            this.setCauda(novoNo);
         } else {
             // 2 - Tem um nó na lista, mas só ele
             if(this.soTemUmNo()) {
-                this.setUltimoNo(novoNo);
-                this.getPrimeiroNo().setProximoNo(novoNo);
-                this.getUltimoNo().setNoAnterior(this.getPrimeiroNo());
+                this.setCauda(novoNo);
+                this.getCabeca().setProximoNo(novoNo);
+                this.getCauda().setNoAnterior(this.getCabeca());
             } else {
                 // 3 - o nó é só mais um
-                novoNo.setNoAnterior(this.getUltimoNo());
-                this.getUltimoNo().setProximoNo(novoNo);
-                this.setUltimoNo(novoNo);
+                novoNo.setNoAnterior(this.getCauda());
+                this.getCauda().setProximoNo(novoNo);
+                this.setCauda(novoNo);
             }
         }
     }
 
-    public No getUltimoNo() {
+    public No getCauda() {
         return cauda;
     }
 
-    public void setUltimoNo(No ultimoNo) {
-        this.cauda = ultimoNo;
+    public void setCauda(No cauda) {
+        this.cauda = cauda;
     }
 
-    public No getPrimeiroNo() {
+    public No getCabeca() {
         return this.cabeca;
     }
 
@@ -105,7 +105,7 @@ public class ListaDuplamenteEncadeada {
         if(this.estaVazia()) {
             return false;
         }
-        No oNoDaVez = this.getPrimeiroNo();
+        No oNoDaVez = this.getCabeca();
         while(oNoDaVez != null) {
             if(oNoDaVez == noBuscado) return true;
             oNoDaVez = oNoDaVez.getProximoNo();

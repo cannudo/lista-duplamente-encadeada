@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class No {
     private No noAnterior;
     private String dado;
@@ -13,6 +15,36 @@ public class No {
         this.noAnterior = null;
         this.dado = dado;
         this.proximoNo = null;
+    }
+
+    public boolean ambosOsObjetosPossuemAMesmaIdentidade(Object that) {
+        return (this == that);
+    }
+
+    public boolean ambosOsObjetosSaoCompativeis(Object that) {
+        boolean thatEhNull = (that == null);
+        boolean ambosOsObjetosSaoDeClassesDiferentes = this.getClass() != that.getClass();
+
+        if(thatEhNull || ambosOsObjetosSaoDeClassesDiferentes) return false;
+
+        return true;
+    }
+
+    public boolean osDoisNosSaoAMesmaIntanciaNaMemoria(Object oNoQueSeQuerComparar) {
+        return (this == oNoQueSeQuerComparar);
+    }
+
+    public boolean oNoQueEstaEmOmparacaoEhNuloOuDeOutraClasse(Object oNoEmComparacao) {
+        if(oNoEmComparacao == null || this.getClass() != oNoEmComparacao.getClass()) return false;
+        return true;
+    }
+
+    @Override
+    public boolean equals(Object that) {
+        if(this.ambosOsObjetosPossuemAMesmaIdentidade(that)) return true;
+        if(!this.ambosOsObjetosSaoCompativeis(that)) return false;
+        No no = (No) that;
+        return (this.getNoAnterior() == no.getNoAnterior()) && (this.getProximoNo() == no.getProximoNo()) && Objects.equals(this.getDado(), no.getDado());
     }
 
     public No(No noAnterior, String dado, No proximoNo) {

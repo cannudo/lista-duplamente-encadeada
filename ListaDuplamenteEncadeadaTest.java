@@ -5,6 +5,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class ListaDuplamenteEncadeadaTest {
     private ListaDuplamenteEncadeada lista;
+    private No noA;
+    private No noZ;
+
 
     private No instanciarNovoNo(String conteudo) {
         return new No(conteudo);
@@ -45,6 +48,7 @@ public class ListaDuplamenteEncadeadaTest {
             No novoNo = instanciarNovoNo(array[i]);
             lista.inserirEmSequencia(novoNo);
         }
+
     }
 
     @Disabled
@@ -56,6 +60,11 @@ public class ListaDuplamenteEncadeadaTest {
     @Test
     public void testAListaDoAlfabetoTemTamanhoVinteESeis() {
         assertEquals(lista.tamanho(), 26, "O alfabeto, dado em um array de Strings, deveria deixar a lista com um tamanho de 26 nós. O que aconteceu, latino?");
+    }
+
+    @Test
+    public void testOPrimeiroNoDaListaEhODaLetraA() {
+
     }
 
     /* Após feitas as inserções na lista do alfabeto :bulb:
